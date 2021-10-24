@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Button Gradient Transition</title>
+        <style>
+            .btn-gradient {
+                position: relative;
+                background-image: linear-gradient(180deg, rgba(0, 69, 194, 1) 55%, rgba(0, 0, 0, 1) 100%);
+                padding: 2rem 3rem;
+                font-size: 20px;
+                color: #ffffff;
+                border: 0;
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            .btn-gradient::before {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                content: "";
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 55%, rgba(0, 69, 194, 1) 100%);
+                z-index: -1;
+                transition: opacity 0.5s linear;
+                opacity: 0;
+            }
+
+            .btn-gradient:hover::before {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <button class="btn-gradient">Lorem ipsum</button>
+        </div>
+    </body>
+</html>
